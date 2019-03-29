@@ -8,31 +8,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-import PluginHeaderTitle from 'components/PluginHeaderTitle';
-import PluginHeaderActions from 'components/PluginHeaderActions';
+import PluginHeaderTitle from '../PluginHeaderTitle';
+import PluginHeaderActions from '../PluginHeaderActions';
 
 import styles from './styles.scss';
 
-function PluginHeader({ actions, description, overrideRendering, subActions, title, withDescriptionAnim }) {
+function PluginHeader({
+  actions,
+  description,
+  overrideRendering,
+  subActions,
+  title,
+  titleId,
+  withDescriptionAnim,
+}) {
   return (
     <div className={cn(styles.pluginHeader, 'row')}>
       <div className="col-lg-7">
         <PluginHeaderTitle
           title={title}
+          titleId={titleId}
           description={description}
           withDescriptionAnim={withDescriptionAnim}
         />
       </div>
       <div className="col-lg-2 justify-content-end">
-        <PluginHeaderActions
-          actions={subActions}
-        />
+        <PluginHeaderActions actions={subActions} />
       </div>
       <div className="col-lg-3 justify-content">
-        <PluginHeaderActions
-          actions={actions}
-          overrideRendering={overrideRendering}
-        />
+        <PluginHeaderActions actions={actions} overrideRendering={overrideRendering} />
       </div>
     </div>
   );
@@ -44,7 +48,8 @@ PluginHeader.defaultProps = {
   overrideRendering: false,
   subActions: [],
   title: '',
-  withDescriptionAnim: false,  
+  titleId: '',
+  withDescriptionAnim: false,
 };
 
 PluginHeader.propTypes = {
@@ -57,10 +62,7 @@ PluginHeader.propTypes = {
       values: PropTypes.object,
     }),
   ]),
-  overrideRendering: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.bool,
-  ]),
+  overrideRendering: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
   subActions: PropTypes.array,
   title: PropTypes.oneOfType([
     PropTypes.string,
@@ -70,6 +72,7 @@ PluginHeader.propTypes = {
       values: PropTypes.object,
     }),
   ]),
+  titleId: PropTypes.string,
   withDescriptionAnim: PropTypes.bool,
 };
 

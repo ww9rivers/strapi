@@ -10,7 +10,7 @@ import { FormattedMessage } from 'react-intl';
 import { get, map, includes, split, isEmpty, findIndex } from 'lodash';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Input from 'components/InputsIndex';
-import PopUpHeaderNavLink from 'components/PopUpHeaderNavLink';
+import PopUpHeaderNavLink from '../PopUpHeaderNavLink';
 import styles from './styles.scss';
 
 /* eslint-disable react/jsx-wrap-multilines */
@@ -139,7 +139,7 @@ class PopUpForm extends React.Component { // eslint-disable-line react/prefer-st
       <ModalFooter className={styles.modalFooter}>
         <Button onClick={handleToggle} className={styles.secondary}><FormattedMessage id="content-type-builder.form.button.cancel" /></Button>
         {popUpFormType !== 'contentType' && <Button type="submit" onClick={onSubmit} className={styles.primaryAddShape}><FormattedMessage id="content-type-builder.button.attributes.add" /></Button>}
-        <Button type="button" onClick={this.handleSubmit} className={styles.primary}><FormattedMessage id={`content-type-builder.${buttonSubmitMessage}`} /></Button>{' '}
+        <Button type="button" onClick={this.handleSubmit} className={styles.primary} id="continue"><FormattedMessage id={`content-type-builder.${buttonSubmitMessage}`} /></Button>{' '}
       </ModalFooter>
     );
   }

@@ -6,13 +6,13 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty, startCase } from 'lodash';
+import { get, isEmpty, startCase } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import IcoContainer from 'components/IcoContainer';
 import ListRow from 'components/ListRow';
 import PopUpWarning from 'components/PopUpWarning';
-import styles from 'components/TableList/styles.scss';
 import { router } from 'app';
+import styles from '../TableList/styles.scss';
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-curly-brace-presence */
 
@@ -51,6 +51,7 @@ class TableListRow extends React.Component {
   handleShowModalWarning = () => this.setState({ showWarning: !this.state.showWarning });
 
   render() {
+    const name = get(this.props.rowItem, 'name', 'default');
     const pluginSource = this.props.rowItem.source ? (
       <FormattedMessage id="content-type-builder.from">
         {message => (
@@ -75,7 +76,7 @@ class TableListRow extends React.Component {
       ? []
       : [
         { icoType: 'pencil', onClick: this.handleEdit },
-        { icoType: 'trash', onClick: this.handleShowModalWarning },
+        { icoType: 'trash', onClick: this.handleShowModalWarning, id: `delete${name}` },
       ];
 
     return (

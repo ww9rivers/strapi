@@ -1,31 +1,37 @@
 # API Reference
 
   - strapi
-    - [.admin](#strapiadmin)
+    - [.admin](#strapi-admin)
+    - [.api](#strapi-api)
     - [.app](#strapiapp)
-    - [.bootstrap()](#strapibootstrap)
-    - [.config](#strapiconfig)
-    - [.controllers](#strapicontrollers)
-    - [.hook](#strapihook)
-    - [.koaMiddlewares](#strapikoaMiddlewares)
-    - [.load()](#strapiload)
-    - [.log](#strapilog)
-    - [.middleware](#strapimiddleware)
-    - [.models](#strapimodels)
-    - [.plugins](#strapiplugins)
-    - [.query()](#strapiquery)
-    - [.reload()](#strapireload)
-    - [.router](#strapirouter)
-    - [.server](#strapiserver)
-    - [.services](#strapiservices)
-    - [.start()](#strapistart)
-    - [.stop()](#strapistop)
-    - [.utils](#strapiutils)
+    - [.bootstrap()](#strapi-bootstrap)
+    - [.config](#strapi-config)
+    - [.controllers](#strapi-controllers)
+    - [.hook](#strapi-hook)
+    - [.koaMiddlewares](#strapi-koaMiddlewares)
+    - [.load()](#strapi-load)
+    - [.log](#strapi-log)
+    - [.middleware](#strapi-middleware)
+    - [.models](#strapi-models)
+    - [.plugins](#strapi-plugins)
+    - [.query()](#strapi-query)
+    - [.reload()](#strapi-reload)
+    - [.router](#strapi-router)
+    - [.server](#strapi-server)
+    - [.services](#strapi-services)
+    - [.start()](#strapi-start)
+    - [.stop()](#strapi-stop)
+    - [.utils](#strapi-utils)
 
 
 ## strapi.admin
 
 This object contains the controllers, models, services and configurations contained in the `./admin` folder.
+
+## strapi.api
+
+This object contains APIs contained in the `./api` folder.
+And by using `strapi.api[:name]` you can access the controllers, services, the model definition and also the configurations of the `./api/:name` folder
 
 ## strapi.app
 

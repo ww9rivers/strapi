@@ -33,11 +33,13 @@ const watcher = (label, pckgName) => {
 const except = [
   'docs',
   'jest.config.js',
+  'jest.config.e2e.js',
   'scripts',
   'strapi-lint',
   'strapi-middleware-views',
   'strapi-plugin-settings-manager',
   'test',
+  'cypress',
 ];
 
 const changedDirs = [...changedFiles]

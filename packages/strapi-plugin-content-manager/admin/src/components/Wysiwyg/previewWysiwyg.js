@@ -20,7 +20,7 @@ import { List, OrderedSet, Repeat, fromJS } from 'immutable';
 import cn from 'classnames';
 import { isEmpty, toArray } from 'lodash';
 
-import WysiwygEditor from 'components/WysiwygEditor';
+import WysiwygEditor from '../WysiwygEditor';
 import converter from './converter';
 import {
   findAtomicEntities,
@@ -239,7 +239,7 @@ class PreviewWysiwyg extends React.PureComponent {
           onChange={() => {}}
           placeholder={placeholder}
         />
-        <input className={styles.editorInput} value="" tabIndex="-1" />
+        <input className={styles.editorInput} value="" onChange={() => {}} tabIndex="-1" />
       </div>
     );
   }

@@ -46,6 +46,7 @@ class InputJSON extends React.Component {
       lineNumbers: true,
       matchBrackets: true,
       mode: 'application/json',
+      readOnly: this.props.disabled,
       smartIndent: true,
       styleSelectedText: true,
       tabSize: 2,
@@ -176,7 +177,7 @@ class InputJSON extends React.Component {
 
     return (
       <div className={styles.jsonWrapper}>
-        <textarea ref={this.editor} autoComplete='off' defaultValue="" />
+        <textarea ref={this.editor} autoComplete='off' id={this.props.name} defaultValue="" />
         <select className={styles.select} onChange={({ target }) => this.setTheme(target.value)} defaultValue={DEFAULT_THEME}>
           {THEMES.sort().map(theme => <option key={theme} value={theme}>{theme}</option>)}
         </select>
@@ -186,12 +187,14 @@ class InputJSON extends React.Component {
 }
 
 InputJSON.defaultProps = {
+  disabled: false,
   onBlur: () => {},
   onChange: () => {},
   value: null,
 };
 
 InputJSON.propTypes = {
+  disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,

@@ -14,10 +14,11 @@ import Label from 'components/Label';
 import InputDescription from 'components/InputDescription';
 import InputErrors from 'components/InputErrors';
 import InputSpacer from 'components/InputSpacer';
-import InputJSON from 'components/InputJSON';
 
 // Utils
 import validateInput from 'utils/inputsValidations';
+
+import InputJSON from '../InputJSON';
 
 import styles from './styles.scss';
 
@@ -51,6 +52,7 @@ class InputJSONWithErrors extends React.Component { // eslint-disable-line react
       this.setErrors(errors);
     }
   }
+
   setErrors = errors => this.setState({ errors });
 
   setInit = () => this.setState({ hasInitialValue: true });
@@ -143,6 +145,7 @@ class InputJSONWithErrors extends React.Component { // eslint-disable-line react
         <InputErrors
           className={errorsClassName}
           errors={!noErrorsDescription && this.state.errors || []}
+          name={name}
           style={errorsStyle}
         />
         {spacer}
